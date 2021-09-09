@@ -56,7 +56,7 @@ module afu
 
    //INSTANTIATE FIFO
    logic [63:0] fifo_output;
-   FIFO iFIFO(.clk(clk), .rst_n(!rst), .d(user_reg), .q(fifo_output), .en(rx.c0.mmioWrValid & (mmio_hdr.address == 16'h0020) ));
+   fifo iFIFO(.clk(clk), .rst_n(!rst), .d(user_reg), .q(fifo_output), .en(rx.c0.mmioWrValid & (mmio_hdr.address == 16'h0020) ));
 
    // The AFU must respond with its AFU ID in response to MMIO reads of the CCI-P device feature 
    // header (DFH).  The AFU ID is a unique ID for a given program. Here we generated one with 
